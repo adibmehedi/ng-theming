@@ -1,0 +1,11 @@
+@import 'slitherine.scss';
+@import 'gryffindor.scss';
+
+.slitherine-theme{
+    @include slitherine();
+}
+
+.gryffindor-theme{
+    @include gryffindor();
+}
+

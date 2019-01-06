@@ -1,0 +1,19 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+@mixin gryffindor() {
+    $gryffindor-primary: mat-palette($mat-red, 800);
+    $gryffindor-accent: mat-palette($mat-red, 200);
+    $gryffindor-warn: mat-palette($mat-red);
+    $gryffindor-theme: mat-light-theme($gryffindor-primary, $gryffindor-accent, $gryffindor-warn);
+    @include angular-material-theme($gryffindor-theme);
+
+    
+    $primary: mat-color($gryffindor-primary);
+    $accent: mat-color($gryffindor-accent);
+    $warn: mat-color($gryffindor-warn);
+
+    .profile-container{
+        background-color: $primary;
+    }
+}
