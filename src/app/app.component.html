@@ -1,6 +1,6 @@
 <div class="container" [ngClass]="{ 'slitherine-theme' : themeName=='slitherine' , 'gryffindor-theme' : themeName!= 'slitherine' }">
   <mat-drawer-container fxFlex="100" fxLayout="row" fxLayoutAlign="start stretch">
-      <mat-drawer #drawer mode="side" opened>
+      <mat-drawer #drawer [mode]="(isHandset| async)? 'over':'side'" [opened]="!(isHandset | async)">
        <div fxLayout="column" fxLayoutAlign="start center"  class="profile-container">
          <div class="profile-image-container">
             <img class="profile-image" src="https://i.pinimg.com/736x/6d/f4/51/6df4519f2c0380c5acc377b5a2190885.jpg">
@@ -19,12 +19,15 @@
               </button>
 
               <div fxLayout="column">
-                <mat-form-field>
+                <button mat-icon-button  (click)="drawer.toggle()">
+                  <mat-icon>chevron_left</mat-icon>
+                </button>
+                <!-- <mat-form-field>
                   <mat-select [(value)]="themeName">
                     <mat-option value="slitherine">Slitherine</mat-option>
                     <mat-option value="gryffindor">Gryffindor</mat-option>
                   </mat-select>
-                </mat-form-field>
+                </mat-form-field> -->
               </div>
 
           </mat-toolbar-row>

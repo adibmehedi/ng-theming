@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +11,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
   themeName = 'gryffindor';
-  constructor(){
-    
+
+  constructor( 
+    private breakpointObserver: BreakpointObserver){
   }
+
+  isHandset: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => {
+        return result.matches;
+      })
+    );
 
 }
