@@ -16,11 +16,17 @@ export class AppComponent {
     private breakpointObserver: BreakpointObserver){
   }
 
+  public switchTheme() {
+    this.themeName = (this.themeName == 'gryffindor') ? 'slitherine' : 'gryffindor';
+  }
+
   isHandset: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => {
         return result.matches;
       })
     );
+
+    
 
 }

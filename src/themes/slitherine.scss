@@ -4,7 +4,7 @@
 @mixin slitherine() {
     $slitherine-primary: mat-palette($mat-green, 700);
     $slitherine-accent: mat-palette($mat-green, 200);
-    $slitherine-warn: mat-palette($mat-red);
+    $slitherine-warn: mat-palette($mat-red, 800);
     $slitherine-theme: mat-light-theme($slitherine-primary, $slitherine-accent,$slitherine-warn);
     @include angular-material-theme($slitherine-theme);
     

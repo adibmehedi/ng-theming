@@ -15,23 +15,33 @@
           <mat-toolbar-row class="padding-0 margin-0" fxLayout="row" fxLayoutAlign="space-between center" >
              
             <button mat-icon-button  (click)="drawer.toggle()">
-                <mat-icon>chevron_left</mat-icon>
-              </button>
+                <mat-icon *ngIf="drawer.isOpen">chevron_left</mat-icon>
+                <mat-icon *ngIf="!drawer.isOpen">toc</mat-icon>
+            </button>
 
               <div fxLayout="column">
-                <button mat-icon-button  (click)="drawer.toggle()">
-                  <mat-icon>chevron_left</mat-icon>
+                <button mat-icon-button  (click)="switchTheme()">
+                  <mat-icon>color_lens</mat-icon>
                 </button>
-                <!-- <mat-form-field>
-                  <mat-select [(value)]="themeName">
-                    <mat-option value="slitherine">Slitherine</mat-option>
-                    <mat-option value="gryffindor">Gryffindor</mat-option>
-                  </mat-select>
-                </mat-form-field> -->
               </div>
 
           </mat-toolbar-row>
         </mat-toolbar>
+        <div>
+          <mat-card>
+            <button mat-raised-button color="primary">Primary</button>
+            <button mat-raised-button color="accent">Accent</button>
+            <button mat-raised-button color="warn">Warn</button>
+          </mat-card>
+
+          <div fxLayout="row wrap" fxLayoutAlign="space-around center" >
+            <mat-card class="display-card" fxFlex.xs="100" fxFlex.gt-xs="35" fxFlex.gt-md="20"></mat-card>
+            <mat-card class="display-card" fxFlex.xs="100" fxFlex.gt-xs="35" fxFlex.gt-md="20"></mat-card>
+            <mat-card class="display-card" fxFlex.xs="100" fxFlex.gt-xs="35" fxFlex.gt-md="20"></mat-card>
+            <mat-card class="display-card" fxFlex.xs="100" fxFlex.gt-xs="35" fxFlex.gt-md="20"></mat-card>
+          </div>
+
+        </div>
       </mat-drawer-content>
   </mat-drawer-container>
  
